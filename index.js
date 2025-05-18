@@ -5,7 +5,10 @@ const PORT = process.env.PORT || 5000;
 
 const dictionary = require('./dictionary.json');
 
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5000', 'https://braille-frontend.vercel.app']
+}));
+
 app.use(express.json());
 
 function levenshtein(a, b) {
